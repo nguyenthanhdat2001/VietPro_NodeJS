@@ -1,0 +1,26 @@
+<% if(pages.length > 1) { %>
+<div id="pagination">
+    <ul class="pagination">
+        <% if(page> 1) { %>
+            <li class="page-item"><a class="page-link"
+                    href="<%= path %>?<%= query?.q && `q=${query.q}&` %>page=<%= page - 1  %>">Trang
+                    trước</a></li>
+            <% } %>
+            <% for(pageNum of pages) { %>
+                <% if(pageNum === '...') { %>
+                    <li class=" page-item"><span href="#" class="page-link"><%= pageNum  %></></li>
+                    <% }else{ %>
+                        <li class=" page-item <%=pageNum===page ? 'active' : '' %>"><a
+                            class="page-link" href="<%= path %>?<%= query?.q && `q=${query.q}&` %>page=<%= pageNum  %>">
+                            <%= pageNum %>
+                        </a></li>
+                <% } %>
+            <% } %>
+        <% if(page < totalPages) { %>
+                <li class="page-item"><a class="page-link"
+                            href="<%= path %>?<%= query?.q && `q=${query.q}&` %>page=<%= page + 1 %>">Trang sau</a></li>
+        <% } %>
+    </ul>
+</div>
+
+<% } %>

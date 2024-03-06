@@ -1,0 +1,47 @@
+<%- include("./layouts/head.ejs", {title: 'Home' }) %>
+    <!--	Header	-->
+    <%- include("./layouts/header.ejs") %>
+        <!--	End Header	-->
+
+        <!--	Body	-->
+        <div id="body">
+            <div class="container">
+                <%- include("./layouts/menu.ejs") %>
+                    <div class="row">
+                        <div id="main" class="col-lg-8 col-md-12 col-sm-12">
+                            <!--	Slider	-->
+                            <%- include("./layouts/slider.ejs") %>
+                                <!--	End Slider	-->
+
+                                <!--	Feature Product	-->
+                                <div class="products">
+                                    <h3>Sản phẩm nổi bật</h3>
+                                    <div class="product-list card-deck">
+                                        <% for(let item of featured) { %>
+                                            <%- include("./components/productItem", {item, formatter}) %>
+                                        <% } %>
+                                    </div>
+                                </div>
+                                <!--	End Feature Product	-->
+
+
+                                <!--	Latest Product	-->
+                                <div class="products">
+                                    <h3>Sản phẩm mới</h3>
+                                    <div class="product-list card-deck">
+                                        <% for(let item of latest) { %>
+                                            <%- include("./components/productItem", {item}) %>
+                                            <% } %>
+                                    </div>
+                                </div>
+                                <!--	End Latest Product	-->
+                        </div>
+
+                        <%- include("./layouts/sidebar.ejs") %>
+
+                    </div>
+            </div>
+        </div>
+        <!--	End Body	-->
+
+        <%- include("./layouts/footer.ejs") %>

@@ -1,0 +1,1 @@
+- router là phân đoạn của url

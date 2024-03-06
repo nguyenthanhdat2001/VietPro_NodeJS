@@ -1,0 +1,42 @@
+<%- include("./layouts/head.ejs", {title: 'Search' }) %>
+    <!--	Header	-->
+    <%- include("./layouts/header.ejs") %>
+        <!--	End Header	-->
+
+        <!--	Body	-->
+        <div id="body">
+            <div class="container">
+                <%- include("./layouts/menu.ejs") %>
+                    <div class="row">
+                        <div id="main" class="col-lg-8 col-md-12 col-sm-12">
+                            <!--	Slider	-->
+                            <%- include("./layouts/slider.ejs") %>
+                                <!--	End Slider	-->
+
+                                <!--	List Product	-->
+                                <div class="products">
+                                    <div id="search-result">
+                                        <%=total %> kết quả tìm kiếm với sản phẩm <span>
+                                                <%= keyword %>
+                                            </span>
+                                    </div>
+                                    <div class="product-list card-deck">
+                                        <% for(let item of products) { %>
+                                            <%- include("./components/productItem", {item}) %>
+                                                <% } %>
+                                    </div>
+                                </div>
+                                <!--	End List Product	-->
+
+                                <%- include("./components/pagination.ejs", { path, page, query }) %>
+
+                        </div>
+
+                        <%- include("./layouts/sidebar.ejs") %>
+
+                    </div>
+            </div>
+        </div>
+        <!--	End Body	-->
+
+        <%- include("./layouts/footer.ejs") %>
